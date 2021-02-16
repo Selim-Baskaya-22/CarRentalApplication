@@ -25,7 +25,6 @@ namespace DataAccess.Concrete.EntityFramework
                              {
                                  BrandName = b.BrandName,
                                  DailyPrice = c.DailyPrice,
-                                 //cl.ColorName=ColorName,
                                  ColorName = cl.ColorName,
                                  CarName = c.Description
                              };
