@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Aspects.Autofac.Validation;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -39,6 +40,7 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result.Message);
         }
+        [ValidationAspect(typeof(Users)) ]
         [HttpPost("adduser")]
         public IActionResult Add(Users users)
         {

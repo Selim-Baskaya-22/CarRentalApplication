@@ -30,21 +30,25 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            //BLL
+            /*
+             * Business Katmanýnda Dependency Resolvers Klasörü Ýçerisinde Autofac kullanýlarak Instance'leri 
+            alýnmýþtýr. Web Api'nin içerisindeki 'Startup' class'ýnýn içerisinde alt yapýsý yazýlmýþtýr.
+            -------------------------
+            BLL
             services.AddSingleton<IBrandService,BrandManager>();
             services.AddSingleton<ICarService, CarManager>();
             services.AddSingleton<IColorService, ColorManager>();
             services.AddSingleton<ICustomersService, CustomerManager>();
             services.AddSingleton<IRentalsService, RentalManager>();
             services.AddSingleton<IUsersService, UserManager>();
-            //DAL
+            DAL
             services.AddSingleton<IBrandDal, EfBrandDal>();
             services.AddSingleton<ICarDal, EfCarDal>();
             services.AddSingleton<IColorDal, EfColorDal>();
             services.AddSingleton<ICustomersDal, EfCustomersDal>();
             services.AddSingleton<IRentalsDal, EfRentalsDal>();
             services.AddSingleton<IUsersDal, EfUsersDal>();
-
+            */
 
         }
 

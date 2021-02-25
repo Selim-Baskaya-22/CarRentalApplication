@@ -29,5 +29,6 @@ namespace Business.Constants
         //Core Message
         public static string MaintenanceTime = "Sistem Bakımda";
 
+        public static string BrandCountError = "500' den fazla marka eklenemez";
     }
 }
