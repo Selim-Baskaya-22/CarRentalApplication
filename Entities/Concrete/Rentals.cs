@@ -4,6 +4,8 @@ using System.Text;
 using Core.Entites;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Core.Entites.Abstract;
+
 namespace Entities.Concrete
 {
     [Table("Rentals")]

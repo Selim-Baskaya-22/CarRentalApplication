@@ -16,10 +16,12 @@ namespace Core.Aspects.Autofac.Validation
         {
             if (!typeof(IValidator).IsAssignableFrom(validatorType))
             {
-                throw new System.Exception("Bu bir doğrulama sınıfı değil!");
+                throw new System.Exception("Not a Validator Type");
             }
 
             _validatorType = validatorType;
+
+
         }
         protected override void OnBefore(IInvocation invocation)
         {
@@ -30,7 +32,6 @@ namespace Core.Aspects.Autofac.Validation
             {
                 ValidationTool.Validate(validator, entity);
             }
-
         }
     }
 }

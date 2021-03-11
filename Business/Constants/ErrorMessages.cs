@@ -30,5 +30,13 @@ namespace Business.Constants
         public static string MaintenanceTime = "Sistem Bakımda";
 
         public static string BrandCountError = "500' den fazla marka eklenemez";
+
+        public static string NotDeleted = "Ürün Silinemedi!";
+
+        //Security
+        public static string AuthorizationDenied = "Yetkiniz yok.";
+        public static string UserNotFound = "Kullanıcı bulunamadı";
+        public static string PasswordError = "Hatalı Şifre";
+        public static string UserAlreadyExists = "Kullanıcı mevcut";
     }
 }

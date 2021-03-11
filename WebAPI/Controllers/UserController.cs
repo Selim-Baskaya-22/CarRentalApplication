@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Core.Aspects.Autofac.Validation;
+using Core.Entites.Concrete;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -40,9 +41,9 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result.Message);
         }
-        [ValidationAspect(typeof(Users)) ]
+        // [ValidationAspect(typeof(Users)) ]
         [HttpPost("adduser")]
-        public IActionResult Add(Users users)
+        public IActionResult Add(User users)
         {
             var result = _usersService.Add(users);
             if (result.Success)
@@ -52,7 +53,7 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
         [HttpDelete("deleteuser")]
-        public IActionResult Delete(Users users)
+        public IActionResult Delete(User users)
         {
             var result = _usersService.Delete(users);
             if (result.Success)
@@ -62,7 +63,7 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
         [HttpPut("updateuser")]
-        public IActionResult Update(Users users)
+        public IActionResult Update(User users)
         {
             var result = _usersService.Update(users);
             if (result.Success)

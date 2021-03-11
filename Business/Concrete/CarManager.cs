@@ -20,17 +20,20 @@ namespace Business.Concrete
         {
             _carDal = carDal;
         }
+      
+        public IResult Add(Cars cars)
+        {
 
-        public void Add(Cars cars)
-        {           
             if (cars.Description.Length > 2 && cars.DailyPrice > 0)
                 _carDal.Add(cars);
-            else if(cars.Description.Length < 2)
+            else if (cars.Description.Length < 2)
                 Console.WriteLine("Açıklama en az 2 karakter olmalıdır!!!");
             else if (cars.DailyPrice < 0)
                 Console.WriteLine("Arabanın günlük fiyatı 0'dan büyük olmalıdır!!!");
             else if (cars.Description.Length < 2 && cars.DailyPrice < 0)
                 Console.WriteLine("Açıklama en az 2 karakter olmalıdır ve arabanın günlük fiyatı 0'dan büyük olmalıdır!!!");
+      
+                return new SuccessResult(SuccessMessages.CarDeleted);
         }
 
         public IResult Delete(Cars cars)
@@ -78,9 +81,6 @@ namespace Business.Concrete
 
         }
 
-        IResult ICrudService<Cars>.Add(Cars entity)
-        {
-            throw new NotImplementedException();
-        }
+   
     }
 }

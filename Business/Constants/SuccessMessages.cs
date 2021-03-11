@@ -36,5 +36,10 @@ namespace Business.Constants
         public static string UserDeleted = "Kullanıcı Silindi";
         public static string UserUpdated = "Kullanıcı Güncellendi";
         public static string UserListed = "Kullanıcı Listelendi";
+
+        //Security
+        public static string UserRegistered = "Kayıt olundu";
+        public static string SuccessfulLogin = "Giriş Başalrılı";
+        public static string AccessTokenCreated = "Erişim tokeni oluşturuldu";
     }
 }
