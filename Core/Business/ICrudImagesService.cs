@@ -11,7 +11,7 @@ namespace Core.Business
 {
     public interface ICrudImagesService<TEntity> where TEntity:class , IEntity, new()
     {
-        IDataResult<List<TEntity>> GetAll(Expression<Func<TEntity,bool>> filter=null);
+        IDataResult<List<TEntity>> GetAll(Expression<Func<TEntity, bool>> filter = null);
         IDataResult<TEntity> GetById(int id);
         IResult Add(IFormFile formFile, TEntity entity);
         IResult Update(IFormFile formFile, TEntity entity);

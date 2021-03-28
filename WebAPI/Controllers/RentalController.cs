@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
@@ -22,6 +23,7 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
+            Thread.Sleep(3000);
             var result = _rentalsService.GetAll();
             if (result.Success)
             {
@@ -63,6 +65,17 @@ namespace WebAPI.Controllers
         public IActionResult Update(Rentals rentals)
         {
             var result = _rentalsService.Update(rentals);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+        [HttpGet("RentalDetails")]
+        public IActionResult GetRentalDetails()
+        {
+            Thread.Sleep(3000);
+            var result=_rentalsService.GetRentalDetails();
             if (result.Success)
             {
                 return Ok(result);

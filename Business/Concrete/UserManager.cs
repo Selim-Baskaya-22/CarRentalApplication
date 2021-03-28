@@ -21,7 +21,7 @@ namespace Business.Concrete
         {
             _usersDal = usersDal;
         }
-        [SecuredOperation("")]
+        //[SecuredOperation("")]
         public IResult Add(User users)
         {
             _usersDal.Add(users);
@@ -41,7 +41,7 @@ namespace Business.Concrete
 
         public IDataResult<User> GetById(int id)
         {
-            return new SuccessDataResult<User>(_usersDal.GetById(u=>u.Id==id), SuccessMessages.UserListed);
+            return new SuccessDataResult<User>(_usersDal.GetById(u=>u.UserId ==id), SuccessMessages.UserListed);
         }
 
         public User GetByMail(string email)

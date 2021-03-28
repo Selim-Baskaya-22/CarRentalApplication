@@ -13,7 +13,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         public List<CarDetailsDto> GetCarDetails()
         {
-            using (CarRentalContext context=new CarRentalContext())
+            using (CarRentalContext context = new CarRentalContext())
             {
 
                 var result = from c in context.Cars
@@ -23,10 +23,12 @@ namespace DataAccess.Concrete.EntityFramework
                              on c.ColorId equals cl.ColorId
                              select new CarDetailsDto
                              {
+                                 CarId = c.CarId,
                                  BrandName = b.BrandName,
-                                 DailyPrice = c.DailyPrice,
                                  ColorName = cl.ColorName,
-                                 CarName = c.Description
+                                 DailyPrice = c.DailyPrice,
+                                 ModelYear = c.ModelYear,
+                                 Description = c.Description
                              };
                 return result.ToList();
             }
@@ -34,7 +36,7 @@ namespace DataAccess.Concrete.EntityFramework
 
         public List<ModelYearBrandNameDto> GetModelYearBrandNameDtos()
         {
-            using (CarRentalContext context=new CarRentalContext())
+            using (CarRentalContext context = new CarRentalContext())
             {
                 var result = from c in context.Cars
                              join b in context.Brands
@@ -46,7 +48,7 @@ namespace DataAccess.Concrete.EntityFramework
                              };
                 return result.ToList();
             }
-           
+
         }
     }
 }

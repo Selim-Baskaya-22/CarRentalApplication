@@ -62,7 +62,7 @@ namespace Business.Concrete
 
         public IDataResult<List<CarDetailsDto>> GetCarDetails()
         {
-            return new SuccessDataResult<List<CarDetailsDto>>( _carDal.GetCarDetails(),SuccessMessages.CarListed+"(Joinlenmiş Şekilde)");
+            return new SuccessDataResult<List<CarDetailsDto>>( _carDal.GetCarDetails(),SuccessMessages.CarListed);
         }
 
         public IDataResult<List<ModelYearBrandNameDto>> GetModelYearBrandNameDtos()

@@ -45,7 +45,7 @@ namespace ConsoleUI
             var result = carManager.GetCarDetails();
             foreach (var cars in result.Data)
             {
-                Console.Write(cars.CarName + " / ");
+                Console.Write(cars.ModelYear + " / ");
                 Console.Write(cars.BrandName + " / ");
                 Console.Write(cars.ColorName + " / ");
                 Console.Write(cars.DailyPrice);
