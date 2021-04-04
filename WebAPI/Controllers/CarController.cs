@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-
 namespace WebAPI.Controllers
 {
+
     [Route("api/[controller]")]
     [ApiController]
     public class CarController:ControllerBase
@@ -71,10 +71,30 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
         [HttpGet("CarDetails")]
-        public IActionResult GetCarDetails()
+        public IActionResult GetCarDetails(int carId)
         {
             Thread.Sleep(3000);
-            var result= _carService.GetCarDetails();
+            var result= _carService.GetByCarDetails(carId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+        [HttpGet("getbybrandid")]
+        public IActionResult GetByBrandId(int brandId)
+        {
+            var result = _carService.GetByBrandId(brandId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+        [HttpGet("getbycolorid")]
+        public IActionResult GetByColorId(int colorId)
+        {
+            var result = _carService.GetByColorId(colorId);
             if (result.Success)
             {
                 return Ok(result);

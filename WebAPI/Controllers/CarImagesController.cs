@@ -21,10 +21,16 @@ namespace WebAPI.Controllers
             _carImageService = carImageService;
         }
 
-        [HttpGet("getall")]
-        public IActionResult Get()
+        [HttpGet("getbycarimages")]
+        public IActionResult GetByCarImages(int imagesId)
         {
-            return Ok();
+            var result = _carImageService.GetAll(c=>c.Id==imagesId);
+            if (result.Success)
+            {
+                return Ok();
+            }
+            return BadRequest(result.Message);
+            
 
         }
         [HttpPost("add")]

@@ -45,9 +45,9 @@ namespace Core.Utilities.Helpers
         public static string Update(string sourcePath, IFormFile formFile)
         {
             var result = newPath(formFile);
-            if (sourcePath.Length>0)
+            if (sourcePath.Length > 0)
             {
-                using (var stream=new FileStream(result,FileMode.Create))
+                using (var stream = new FileStream(result, FileMode.Create))
                 {
                     formFile.CopyTo(stream);
                 }

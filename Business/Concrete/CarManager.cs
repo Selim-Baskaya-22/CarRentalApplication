@@ -8,6 +8,7 @@ using Entities.Concrete;
 using Entities.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace Business.Concrete
@@ -15,7 +16,6 @@ namespace Business.Concrete
     public class CarManager : ICarService
     {
         ICarDal _carDal;
-
         public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
@@ -55,15 +55,27 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Cars>>(_carDal.GetAll(),SuccessMessages.CarListed);
         }
 
+        public IDataResult<List<Cars>> GetByBrandId(int brandId)
+        {
+            return new SuccessDataResult<List<Cars>>(_carDal.GetAll(c=>c.BrandId== brandId), SuccessMessages.CarListed);
+        }
+
+        public IDataResult<List<Cars>> GetByColorId(int colorId)
+        {
+            return new SuccessDataResult<List<Cars>>(_carDal.GetAll(c => c.ColorId == colorId));
+        }
+
         public IDataResult<Cars> GetById(int id)
         {
             return new SuccessDataResult<Cars>(_carDal.GetById(c=>c.CarId==id),SuccessMessages.CarListed);
         }
 
-        public IDataResult<List<CarDetailsDto>> GetCarDetails()
+        public IDataResult<List<CarDetailsDto>> GetByCarDetails(int carId)
         {
-            return new SuccessDataResult<List<CarDetailsDto>>( _carDal.GetCarDetails(),SuccessMessages.CarListed);
+            return new SuccessDataResult<List<CarDetailsDto>>( _carDal.GetByCarDetails(carId),SuccessMessages.CarListed);
         }
+
+  
 
         public IDataResult<List<ModelYearBrandNameDto>> GetModelYearBrandNameDtos()
         {

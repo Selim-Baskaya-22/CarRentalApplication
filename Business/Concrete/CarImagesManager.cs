@@ -82,7 +82,7 @@ namespace Business.Concrete
         }
         private CarImages CheckIfCarImageNull(int id)
         {
-            string path = Environment.CurrentDirectory + @"\wwwroot\CompanyLogo";
+            string path = Environment.CurrentDirectory + @"\\CompanyLogo";
             var result = _carImagesDal.GetAll(c => c.CarId == id).Count();
             if (result==0)
             {
